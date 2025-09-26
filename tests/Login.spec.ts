@@ -1,12 +1,19 @@
 import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+import * as dotenv from 'dotenv';
+
+// Carrega .env apenas se NÃO estiver no GitHub Actions
+if (process.env.NODE_ENV !== 'github') {
+    dotenv.config();
+}
 
 let loginPage: LoginPage;
 
 const user = process.env.ORANGE_USER;
 const pass = process.env.ORANGE_PASS;
+const url = process.env.BASE_URL;
 
-if (!user || !pass) throw new Error("Variáveis de ambiente ORANGE_USER ou ORANGE_PASS não definidas");
+if (!user || !pass || !url) throw new Error("Variáveis de ambiente ORANGE_USER, ORANGE_PASS ou BASE_URL não definidas");
 
 test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
