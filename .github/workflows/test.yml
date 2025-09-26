@@ -24,7 +24,6 @@ jobs:
 
       - name: Run Playwright tests
         env:
-          NODE_ENV: github
           ORANGE_USER: ${{ secrets.ORANGE_USER }}
           ORANGE_PASS: ${{ secrets.ORANGE_PASS }}
           BASE_URL: ${{ secrets.BASE_URL }}
