@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    // Diretórios
+    "rootDir": ".",
+    "outDir": "dist",
+
+    // Ambiente
+    "module": "commonjs",          // mais compatível para Node/Playwright
+    "target": "esnext",            // bom para recursos modernos
+    "lib": ["ESNext", "DOM"],      // precisa do DOM para testes
+    "types": ["node", "playwright"],
+
+    // Mapas
+    "sourceMap": true,
+    "declaration": false,          // não precisa gerar d.ts para testes
+
+    // Type-checking forte
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Outros
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "tests/**/*.ts",
+    "pages/**/*.ts",
+    "utils/**/*.ts",
+    "playwright.config.ts"
+  ]
+}
